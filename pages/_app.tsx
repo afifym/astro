@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import ReactGA from 'react-ga';
-import Head from 'next/head';
+// import Head from 'next/head';
 
 ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
 
@@ -12,12 +12,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     console.log('process.env.ANALYTICS_ID', process.env.ANALYTICS_ID);
 
     // ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
+    ReactGA.set({ page: window.location.pathname + window.location.search });
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.ANALYTICS_ID}`}
@@ -34,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       `,
           }}
         />
-      </Head>
+      </Head> */}
 
       <Component {...pageProps} />
     </>
