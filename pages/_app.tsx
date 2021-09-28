@@ -5,12 +5,13 @@ import ReactGA from 'react-ga';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // useEffect(() => {
-  //   console.log('analytics ---------------------');
+  useEffect(() => {
+    // console.log('analytics ---------------------');
+    console.log('process.env.ANALYTICS_ID', process.env.ANALYTICS_ID);
 
-  //   ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
-  //   ReactGA.pageview(window.location.pathname + window.location.search);
-  // }, []);
+    // ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
+    // ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <>
