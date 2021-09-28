@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 import ReactGA from 'react-ga';
 // import Head from 'next/head';
 
-ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
+ReactGA.initialize('G-G3SWTT2357');
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
