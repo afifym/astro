@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import ReactGA from 'react-ga';
-import Head from 'next/head';
+
+ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -15,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.ANALYTICS_ID}`}
@@ -32,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       `,
           }}
         />
-      </Head>
+      </Head> */}
 
       <Component {...pageProps} />
     </>
