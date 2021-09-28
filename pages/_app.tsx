@@ -2,20 +2,8 @@ import { useEffect } from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import ReactGA from 'react-ga';
-// import Head from 'next/head';
-
-ReactGA.initialize('G-G3SWTT2357');
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    // console.log('analytics ---------------------');
-    console.log('process.env.ANALYTICS_ID', process.env.ANALYTICS_ID);
-
-    // ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
-    ReactGA.set({ page: window.location.pathname + window.location.search });
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
-
   return (
     <>
       {/* <Head>
