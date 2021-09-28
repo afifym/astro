@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     console.log('process.env.ANALYTICS_ID', process.env.ANALYTICS_ID);
 
     // ReactGA.initialize(`${process.env.ANALYTICS_ID}`);
-    // ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   return (
