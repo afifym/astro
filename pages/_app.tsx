@@ -4,6 +4,16 @@ import type { AppProps } from 'next/app';
 import ReactGA from 'react-ga';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    ReactGA.initialize('G-G3SWTT2357', {
+      debug: true,
+      gaOptions: {
+        siteSpeedSampleRate: 100,
+      },
+    });
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <>
       {/* <Head>
