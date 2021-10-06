@@ -7,21 +7,14 @@ interface TProps {
 }
 
 const AstroPage: NextPage<TProps> = ({ props }) => {
+  console.log('props', props);
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
-  const onClick = () => {
-    ReactGA.event({
-      category: 'Button',
-      action: 'Clicked a button',
-    });
-  };
-
   return (
     <div style={{ padding: '20px' }}>
       <h1>ASTRO</h1>
-      <button onClick={onClick}>Click here!</button>
     </div>
   );
 };
@@ -37,11 +30,11 @@ const AstroPage: NextPage<TProps> = ({ props }) => {
 //   };
 // };
 
-// export async function getServerSideProps(context: any) {
-//   console.log('props -------------------------', context.req);
-//   return {
-//     props: { props: context.req || {} }, // will be passed to the page component as props
-//   };
-// }
+export async function getServerSideProps(context: any) {
+  const { cookies } = context.req;
+  return {
+    props: { props: cookies }, // will be passed to the page component as props
+  };
+}
 
 export default AstroPage;
